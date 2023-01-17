@@ -1,0 +1,18 @@
+{
+	"name": "user-list-vanilla",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.html",
+	"scripts": {
+		"dev:tailwind": "npx tailwindcss -i ./src/style.css -o ./dist/build.css --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "user-list-vanilla"
+	},
+	"author": "Bruno Berwian",
+	"license": "ISC",
+	"devDependencies": {
+		"tailwindcss": "^3.2.4"
+	}
+}
