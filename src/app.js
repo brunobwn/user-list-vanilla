@@ -67,6 +67,7 @@ function loadUsers() {
 	users.forEach((user) => createUserCard(user));
 }
 
+// cria Card de Usuario e adiciona a div#userContainer
 function createUserCard(userData) {
 	const card = document.createElement('article');
 	card.classList.add(
@@ -102,6 +103,7 @@ function createUserCard(userData) {
 	userContainer.appendChild(card);
 }
 
+// retorna cor aleatória
 function getRandomColor() {
 	const colors = [
 		'#B91C1C',
