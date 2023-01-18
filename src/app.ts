@@ -1,26 +1,60 @@
 /* eslint-disable no-unused-vars */
 
 interface randomUserInterface {
+    gender: string;
     name: {
         title: string;
         first: string;
         last: string;
+    };
+    location: {
+        street: {
+            number: number;
+            name: string;
+        };
+        city: string;
+        state: string;
+        country: string;
+        postcode: string;
+        coordinates: {
+            latitude: string;
+            longitude: string;
+        };
+        timezone: {
+            offset: string;
+            description: string;
+        };
     };
     email: string;
     login: {
         uuid: string;
         username: string;
         password: string;
-    };
-    picture: {
-        medium: string;
-        large: string;
-        thumbnail: string;
+        salt: string;
+        md5: string;
+        sha1: string;
+        sha256: string;
     };
     dob: {
+        date: string;
         age: number;
-        date: Date;
     };
+    registered: {
+        date: string;
+        age: number;
+    };
+    phone: string;
+    cell: string;
+    id: {
+        name: string;
+        value: string;
+    };
+    picture: {
+        large: string;
+        medium: string;
+        thumbnail: string;
+    };
+    nat: string;
 }
 
 const userContainer = document.getElementById('userContainer') as HTMLDivElement;
@@ -64,16 +98,6 @@ const mockUser = {
         date: '1992-03-08T15:13:16.688Z',
         age: 30,
     },
-    registered: {
-        date: '2007-07-09T05:51:59.390Z',
-        age: 14,
-    },
-    phone: '(272) 790-0888',
-    cell: '(489) 330-2385',
-    id: {
-        name: 'SSN',
-        value: '405-88-3636',
-    },
     picture: {
         large: 'https://randomuser.me/api/portraits/men/75.jpg',
         medium: 'https://randomuser.me/api/portraits/med/men/75.jpg',
@@ -84,12 +108,18 @@ const mockUser = {
 
 function loadUsers() {
     // TODO: fetch users
-    const users: randomUserInterface[] = [];
+    let users: randomUserInterface[] = [];
 
-    // remove cards existentes
-    userContainer.innerHTML = '';
-    // percorre cada usuário e cria card especifico
-    users.forEach((user) => createUserCard(user));
+    fetch('https://randomuser.me/api/?nat=br&results=30')
+        .then((res) => res.json())
+        .then((response) => {
+            users = response.results;
+            // remove cards existentes
+            userContainer.innerHTML = '';
+            // percorre cada usuário e cria card especifico
+            users.forEach((user) => createUserCard(user));
+        })
+        .catch((error) => console.error(error));
 }
 
 // cria Card de Usuario e adiciona a div#userContainer
