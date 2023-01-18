@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exercício User List</title>
+        <link rel="stylesheet" href="./style/build.css" />
+    </head>
+    <body class="min-h-screen bg-gray-100">
+        <header class="py-8 flex justify-between container mx-auto px-4">
+            <h1 class="text-2xl text-center">Lista de usuários</h1>
+            <button
+                class="px-3 py-2 text-white border rounded-lg shadow-sm bg-cyan opacity-90 hover:opacity-100 hover:shadow-lg focus:border-cyan focus:ring-1 focus:ring-cyan transition-all duration-200 ease-in"
+                onClick="loadUsers()">
+                Carregar usuários
+            </button>
+        </header>
+        <main
+            class="container mx-auto mt-4 grid grid-cols-1 px-4 sm:grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4"
+            id="userContainer"></main>
+        <script src="./js/app.js" type="text/javascript"></script>
+    </body>
+</html>
