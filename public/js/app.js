@@ -59,7 +59,7 @@ const mockUser = {
 };
 function loadUsers() {
     // TODO: fetch users
-    const users = [];
+    const users = [mockUser, mockUser, mockUser, mockUser];
     // remove cards existentes
     userContainer.innerHTML = '';
     // percorre cada usuário e cria card especifico
